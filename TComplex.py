@@ -1,7 +1,16 @@
 class TComplex:
-    def __init__(self, real: float = 0, imaginary: float = 0):
-        self.__real_part = real
-        self.__im_part = imaginary
+    def __init__(self, *args):
+        if len(args) == 1:
+            if isinstance(args[0], str):
+                nums = args[0].replace(' ', '').split('+')
+                self.__real_part = float(nums[0])
+                self.__im_part = float(nums[1][:-1])
+            else:
+                self.__real_part = 0
+                self.__im_part = 0
+        else:
+            self.__real_part = args[0]
+            self.__im_part = args[1]
 
     def __str__(self):
         if self.__real_part == 0 and self.__im_part == 0:
@@ -40,4 +49,3 @@ class TComplex:
         return TComplex((self.__real_part * other.__real_part + self.__im_part * other.__im_part)/(other.__real_part ** 2 + other.__im_part),
                         (self.__im_part * other.__real_part + self.__real_part / other.__im_part)/(other.__real_part ** 2 + other.__im_part))
 
-    

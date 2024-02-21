@@ -1,5 +1,5 @@
 import copy
-import TComplex
+from TComplex import TComplex
 # задаём абстрактный тип number
 number = TComplex
 
